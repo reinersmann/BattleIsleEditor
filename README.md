@@ -6,4 +6,4 @@ The source code is neither documented nor commented.<br>
 It was my first (and last) program written in this languange so do not expect anything too fancy :-)<br>
 On the bright side: the program still works for example in WinUAE!<br>
 <br>
-The GUI texts and manual are written in German.
+The GUI texts and manuals are written in German.
