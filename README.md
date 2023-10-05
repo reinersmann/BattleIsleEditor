@@ -33,3 +33,6 @@ The contents of the repository are as follows:
     ├── HLEd12_512K.asm     History Line Editor v1.2
     └── HLEd12.asm          History Line Editor v1.2 - runs on systems with only 512k chip mem
 </code>
+
+BIEd 1.6 in action:
+![001](https://github.com/reinersmann/BattleIsleEditor/assets/12761313/ed974ef3-8023-48b6-ae61-adb3ae642c11)
