@@ -5,6 +5,7 @@ The editors have been written about 30 years ago in assembly language on an Amig
 The source code is neither documented nor commented.<br>
 It was my first (and last) program written in this languange so do not expect anything too fancy :-)<br>
 On the bright side: the program still works for example in WinUAE!<br>
+There seems to be an issue with memory allocation in HLEd12 though: it only runs in Kickstart >= 39.106 and Workbench >= 39.29.<br>
 <br>
 The GUI texts and manuals are written in German.
 
