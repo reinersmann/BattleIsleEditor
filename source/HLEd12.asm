@@ -4312,12 +4312,12 @@ IU_Loop
 	moveq	#0,d6
 	move.b	-5(a5),d6
 	mulu	d7,d6
-	add.w	d6,d6			;d6 = Grï¿½ï¿½e
-	move.l	d6,d5			;d5 = Grï¿½ï¿½e
+	add.w	d6,d6			;d6 = Größe
+	move.l	d6,d5			;d5 = Größe
 	add.w	d6,d6
-	add.w	d5,d6			;d6 = 3*Grï¿½ï¿½e
+	add.w	d5,d6			;d6 = 3*Größe
 	movea.l	a5,a0
-	adda.l	d5,a0			;a0 = Wert2+Grï¿½ï¿½e
+	adda.l	d5,a0			;a0 = Wert2+Größe
 	move.l	d4,d0
 	add.w	d4,d4
 	add.w	d0,d4
@@ -4328,13 +4328,13 @@ IU_Loop
 	lsl.w	#3,d4			;d4 = ImageData-Offset
 	movea.l	d2,a1
 	adda.l	d4,a1			;a1 = ImageData
-	move.l	d6,d0			;d0 = 3*Grï¿½ï¿½e
+	move.l	d6,d0			;d0 = 3*Größe
 	jsr	-630(a6)
 	movea.l	a5,a0			;a0 = Wert2
 	movea.l	d2,a1
 	adda.l	d4,a1
-	adda.l	d6,a1			;a1 = ImageData+3*Grï¿½ï¿½e
-	move.l	d5,d0			;d0 = Grï¿½ï¿½e
+	adda.l	d6,a1			;a1 = ImageData+3*Größe
+	move.l	d5,d0			;d0 = Größe
 	jsr	-630(a6)
 	move.l	d3,d5
 	lsl.w	#2,d5
@@ -5360,7 +5360,7 @@ Shop		dc.l	$10000,4368
 MemListeEnde
 
 FontName	dc.b	'topaz.font',0
-Titel1		dc.b	'HL Editor 1.2 - ï¿½ 1993 Werner Reinersmann',0
+Titel1		dc.b	'HL Editor 1.2 - © 1993 Werner Reinersmann',0
 BWarten		dc.b	'Bitte warten ...',0
 Titel2		dc.b	'Karte',0
 Units		dc.b	'Units',0
@@ -5390,7 +5390,7 @@ SText14		dc.b	'  HANDLEY',0
 SText15		dc.b	'  VOISIN',0
 SText16		dc.b	'  TRUPPENTRANSPORT',0
 SText17		dc.b	'  PANZERZUG',0
-SText18		dc.b	'  SCHIENENGESCHï¿½TZ',0
+SText18		dc.b	'  SCHIENENGESCHÜTZ',0
 SText19		dc.b	'  BALLON',0
 SText20		dc.b	'  TRANSPORTWAGEN',0
 SText21		dc.b	'  KAVALLERIE',0
@@ -5399,7 +5399,7 @@ SText23		dc.b	'  PANZERABWEHR',0
 SText24		dc.b	'  INFANTERIE',0
 SText25		dc.b	'  ELITE INFANTERIE',0
 SText26		dc.b	'  DEPOTEINHEIT',0
-SText27		dc.b	'  STATIONï¿½RE FLAK',0
+SText27		dc.b	'  STATIONÄRE FLAK',0
 SText28		dc.b	'  MOBILE FLAK',0
 SText29		dc.b	'  SCHWERE ARI',0
 SText30		dc.b	'  MITTLERE ARI',0
@@ -5413,7 +5413,7 @@ SText37		dc.b	'  JUNKERS J4-10',0
 SText38		dc.b	'  ZEPPELIN STAAKEN',0
 SText39		dc.b	'  GOTHA',0
 SText40		dc.b	'  A7V',0
-SText41		dc.b	'  SPï¿½HPANZER',0
+SText41		dc.b	'  SPÄHPANZER',0
 SText42		dc.b	'  64',0
 SText43		dc.b	'  56',0
 SText44		dc.b	'  48',0
@@ -5428,22 +5428,22 @@ SText52		dc.b	'  C',0
 SText53		dc.b	'  B',0
 SText54		dc.b	'  A',0
 NText1		dc.b	'  Weg         ',0
-NText2		dc.b	'  Straï¿½e      ',0
+NText2		dc.b	'  Straße      ',0
 NText3		dc.b	'  Schiene     ',0
-NText4		dc.b	'  Fluï¿½        ',0
-NText5		dc.b	'  Fï¿½llen      ',0
+NText4		dc.b	'  Fluß        ',0
+NText5		dc.b	'  Füllen      ',0
 NText6		dc.b	'  Normal      ',0
 NText7		dc.b	'Units          ',0
 NText8		dc.b	'Parts II       ',0
 NText9		dc.b	'Parts I        ',0
-NText10		dc.b	'Produktion II ï¿½',0
-NText11		dc.b	'Produktion I  ï¿½',0
-NText12		dc.b	'Hï¿½he          ï¿½',0
-NText13		dc.b	'Breite        ï¿½',0
+NText10		dc.b	'Produktion II »',0
+NText11		dc.b	'Produktion I  »',0
+NText12		dc.b	'Höhe          »',0
+NText13		dc.b	'Breite        »',0
 NText14		dc.b	'  Statistik     ',0
 NText15		dc.b	'  Units         ',0
-NText16		dc.b	'  Schritte     ï¿½',0
-NText17		dc.b	'  Palette      ï¿½',0
+NText16		dc.b	'  Schritte     »',0
+NText17		dc.b	'  Palette      »',0
 NText18		dc.b	'  Karte         ',0
 NText19		dc.b	'Ende        ',0
 NText20		dc.b	'Sichern     ',0
@@ -6394,18 +6394,18 @@ DosName		dc.b	'dos.library',0
 IntName		dc.b	'intuition.library',0
 GfxName		dc.b	'graphics.library',0
 LibNameTab	dc.l	DosName,IntName,GfxName
-DosFehler	dc.b	'Dos Library konnte nicht geï¿½ffnet werden !',0
-IntFehler	dc.b	'Intuition Library konnte nicht geï¿½ffnet werden !',0
-GfxFehler	dc.b	'Graphics Library konnte nicht geï¿½ffnet werden !',0
+DosFehler	dc.b	'Dos Library konnte nicht geöffnet werden !',0
+IntFehler	dc.b	'Intuition Library konnte nicht geöffnet werden !',0
+GfxFehler	dc.b	'Graphics Library konnte nicht geöffnet werden !',0
 LibFehlerTab	dc.l	DosFehler,IntFehler,GfxFehler
-ScreenFehler	dc.b	'Schirm konnte nicht geï¿½ffnet werden !',0
-FenstFehler	dc.b	'Fenster konnte nicht geï¿½ffnet werden !',0
+ScreenFehler	dc.b	'Schirm konnte nicht geöffnet werden !',0
+FenstFehler	dc.b	'Fenster konnte nicht geöffnet werden !',0
 MenuFehler	dc.b	'Menus konnten nicht erstellt werden !',0
-ReqFehler	dc.b	'Requester konnte nicht geï¿½ffnet werden !',0
+ReqFehler	dc.b	'Requester konnte nicht geöffnet werden !',0
 LockFehler	dc.b	'Datei existiert nicht !',0
 ExamineFehler	dc.b	'Datei konnte nicht untersucht werden !',0
 AllocMemFehler	dc.b	'Speicher konnte nicht reserviert werden !',0
-OpenFehler	dc.b	'Datei konnte nicht geï¿½ffnet werden !',0
+OpenFehler	dc.b	'Datei konnte nicht geöffnet werden !',0
 GepacktFehler	dc.b	'Datei gepackt !',0
 ReadFehler	dc.b	'Fehler beim Lesen der Datei !',0
 ConTitel1	dc.b	'CON:0/118/640/21/Fehler !',0
@@ -6419,7 +6419,7 @@ HL6		dc.b	'HL6:',0
 ErstPartsI	dc.b	'Erstelle Fenster Parts I  ...',0
 ErstPartsII	dc.b	'Erstelle Fenster Parts II ...',0
 ErstUnits	dc.b	'Erstelle Fenster Units    ...',0
-Titel5		dc.b	'Level : __ Grï¿½ï¿½e : xx * yy Schr. : ss',0
+Titel5		dc.b	'Level : __ Größe : xx * yy Schr. : ss',0
 ScrollListe	dc.l	$1d,-1,01,$1e,00,01,$1f,01,01,$2d,-1,00,$2f,01,00
 		dc.l	$3d,-1,-1,$3e,00,-1,$3f,01,-1,$4c,00,-1,$4d,00,01
 		dc.l	$4e,01,00,$4f,-1,00
@@ -6433,7 +6433,7 @@ SichFin		dc.b	'Schreibe xx.FIN ...',0
 ShpName		dc.b	'MAP/xx.SHP',0
 LadeShp		dc.b	'Lade xx.SHP ...',0
 SichShp		dc.b	'Schreibe xx.SHP ...',0
-ZaehlShpText	dc.b	'Zï¿½hle Shops ...',0
+ZaehlShpText	dc.b	'Zähle Shops ...',0
 TypTeilListe	dc.b	00,01,00,00,02,01
 		dc.b	01,12,02,01,13,00,01,14,01
 		dc.b	02,15,02,02,16,00,02,17,01
@@ -6468,11 +6468,11 @@ SiSiSiTxt	dc.b	'Sind Sie sicher ? (j/n) ',0
 EZKTxt		dc.b	'Eins  Zwei  Karte',0
 StatsTxt	dc.b	' Fabriken :',0,'   Depots :',0,'Rohstoffe :',0
 		dc.b	'    Units :',0
-ModsTxt		dc.b	'Modus : Fï¿½llen ',0,'Modus : Fluï¿½   ',0
-		dc.b	'Modus : Schiene',0,'Modus : Straï¿½e ',0
+ModsTxt		dc.b	'Modus : Füllen ',0,'Modus : Fluß   ',0
+		dc.b	'Modus : Schiene',0,'Modus : Straße ',0
 		dc.b	'Modus : Weg    ',0
 ModsTxtTab	dc.l	ModsTxt,ModsTxt+16,ModsTxt+32,ModsTxt+48,ModsTxt+64
-ZweiHQsTxt	dc.b	'Es muï¿½ zwei HQs geben !',0
+ZweiHQsTxt	dc.b	'Es muß zwei HQs geben !',0
 HQFelder	dc.l	1,1,-1,1,0,-1,0,2,0,1,1,1,1,0,1,0,1,0
 HQTeile1	dc.b	5,00,00,00,00,00,00
 HQTeile2	dc.b	5,06,05,04,08,07,03
