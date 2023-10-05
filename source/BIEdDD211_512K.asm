@@ -162,49 +162,6 @@ VorAb
 	moveq	#0,d0
 	bsr	Palette
 
-Decode
-	lea	Folge(pc),a0
-	lea	Benutzer(pc),a1
-	moveq	#26,d0
-DC_Loop
-	move.b	(a0)+,d1
-	sub.b	d1,(a1)+
-	dbf	d0,DC_Loop
-	lea	Folge(pc),a0
-	lea	Nummer(pc),a1
-	moveq	#6,d0
-DC_Loop2
-	move.b	(a0)+,d1
-	sub.b	d1,(a1)+
-	dbf	d0,DC_Loop2
-	lea	Benutzer(pc),a0
-	movea.l	RP1(pc),a1
-	moveq	#0,d0
-	moveq	#7,d1
-	bsr	Schreib
-	lea	Nummer(pc),a0
-	movea.l	RP1(pc),a1
-	moveq	#0,d0
-	moveq	#16,d1
-	bsr	Schreib
-
-Check
-	lea	Titel1(pc),a0
-	bsr	StrLen
-	cmpi.b	#35,d0
-	bne	Ende
-	moveq	#0,d1
-CH_Loop
-	moveq	#0,d2
-	move.b	(a0)+,d2
-	mulu	d0,d2
-	add.w	d2,d1
-	dbf	d0,CH_Loop
-	moveq	#-1,d0
-	sub.w	d1,d0
-	cmpi.w	#18951,d0
-	bne	Ende
-
 LadePfad
 	lea	LPTxt(pc),a0
 	movea.l	RP1(pc),a1
@@ -5392,7 +5349,7 @@ ImageZgr	dc.l	$10002,480
 MemListeEnde
 
 FontName	dc.b	'topaz.font',0
-Titel1		dc.b	'BI Editor DD2 - � 1993 Werner Oluts',0
+Titel1		dc.b	'BI Editor DD2 - � 1993 Werner Reinersmann',0
 BWarten		dc.b	'Bitte warten ...',0
 Titel2		dc.b	'Karte',0
 Units		dc.b	'Units',0
@@ -6199,8 +6156,6 @@ Titel5		dc.b	'Level : __ Gr��e : xx * yy Schr. : ss',0
 ScrollListe	dc.l	$1d,-1,01,$1e,00,01,$1f,01,01,$2d,-1,00,$2f,01,00
 		dc.l	$3d,-1,-1,$3e,00,-1,$3f,01,-1,$4c,00,-1,$4d,00,01
 		dc.l	$4e,01,00,$4f,-1,00
-Benutzer	dc.b	'1                         2',0
-Nummer		dc.b	'1     2',0
 LvlLaden	dc.b	'Level laden ...',0
 LvlSichern	dc.b	'Level sichern ...',0
 LadenText	dc.b	'Lade Level xx ...',0
@@ -6238,8 +6193,6 @@ SI_Energie	dc.b	' Energie :',0
 ClassSprung	dc.l	$8,ExModus,$100,MenuHandel,$400,TastaturHandel
 Teiler		dc.l	1000000000,100000000,10000000,1000000,100000,10000,
 		dc.l	1000,100,10
-Folge		dc.b	92,67,61,42,36,89,23,20,23,37,74,61,102,29,24,94,77
-		dc.b	126,54,113,39,51,60,34,55,49,35
 LPTxt		dc.b	'Lade Pfad ...',0
 PfadName	dc.b	'S:DD2Pfad',0
 FenstTab	dc.l	Fenst3,Fenst3,Fenst3,Fenst1

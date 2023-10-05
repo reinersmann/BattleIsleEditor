@@ -163,49 +163,6 @@ VorAb
 	moveq	#0,d0
 	bsr	Palette
 
-Decode
-	lea	Folge(pc),a0
-	lea	Benutzer(pc),a1
-	moveq	#26,d0
-DC_Loop
-	move.b	(a0)+,d1
-	sub.b	d1,(a1)+
-	dbf	d0,DC_Loop
-	lea	Folge(pc),a0
-	lea	Nummer(pc),a1
-	moveq	#6,d0
-DC_Loop2
-	move.b	(a0)+,d1
-	sub.b	d1,(a1)+
-	dbf	d0,DC_Loop2
-	lea	Benutzer(pc),a0
-	movea.l	RP1(pc),a1
-	moveq	#0,d0
-	moveq	#7,d1
-	bsr	Schreib
-	lea	Nummer(pc),a0
-	movea.l	RP1(pc),a1
-	moveq	#0,d0
-	moveq	#16,d1
-	bsr	Schreib
-
-Check
-	lea	Titel1(pc),a0
-	bsr	StrLen
-	cmpi.b	#35,d0
-	bne	Ende
-	moveq	#0,d1
-CH_Loop
-	moveq	#0,d2
-	move.b	(a0)+,d2
-	mulu	d0,d2
-	add.w	d2,d1
-	dbf	d0,CH_Loop
-	moveq	#-1,d0
-	sub.w	d1,d0
-	cmpi.w	#19862,d0
-	bne	Ende
-
 LadePfad
 	lea	LPTxt(pc),a0
 	movea.l	RP1(pc),a1
@@ -5508,7 +5465,7 @@ MemListeEnde
 * Const
 
 FontName	dc.b	'topaz.font',0
-Titel1		dc.b	'BI Editor 1.6 - ï¿½ 1993 Werner Oluts',0
+Titel1		dc.b	'BI Editor 1.6 - © 1993 Werner Reinersmann',0
 BWarten		dc.b	'Bitte warten ...',0
 Titel2		dc.b	'Karte',0
 Units		dc.b	'Units',0
@@ -5548,18 +5505,18 @@ SText25		dc.b	'   8',0
 SText26		dc.b	'   4',0
 SText27		dc.b	'   2',0
 NText1		dc.b	'  Wall       ',0
-NText2		dc.b	'  Straï¿½e     ',0
-NText3		dc.b	'  Fï¿½llen     ',0
+NText2		dc.b	'  Straße     ',0
+NText3		dc.b	'  Füllen     ',0
 NText4		dc.b	'  Normal     ',0
 NText5		dc.b	'Units',0
 NText6		dc.b	'Parts',0
-NText7		dc.b	'Produktion ï¿½',0
-NText8		dc.b	'Hï¿½he       ï¿½',0
-NText9		dc.b	'Breite     ï¿½',0
+NText7		dc.b	'Produktion »',0
+NText8		dc.b	'Höhe       »',0
+NText9		dc.b	'Breite     »',0
 NText10		dc.b	'  Statistik     ',0
 NText11		dc.b	'  Units         ',0
-NText12		dc.b	'  Schritte     ï¿½',0
-NText13		dc.b	'  Palette      ï¿½',0
+NText12		dc.b	'  Schritte     »',0
+NText13		dc.b	'  Palette      »',0
 NText14		dc.b	'  Karte         ',0
 NText15		dc.b	'Ende        ',0
 NText16		dc.b	'Sichern     ',0
@@ -6207,18 +6164,18 @@ DosName		dc.b	'dos.library',0
 IntName		dc.b	'intuition.library',0
 GfxName		dc.b	'graphics.library',0
 LibNameTab	dc.l	DosName,IntName,GfxName
-DosFehler	dc.b	'Dos Library konnte nicht geï¿½ffnet werden !',0
-IntFehler	dc.b	'Intuition Library konnte nicht geï¿½ffnet werden !',0
-GfxFehler	dc.b	'Graphics Library konnte nicht geï¿½ffnet werden !',0
+DosFehler	dc.b	'Dos Library konnte nicht geöffnet werden !',0
+IntFehler	dc.b	'Intuition Library konnte nicht geöffnet werden !',0
+GfxFehler	dc.b	'Graphics Library konnte nicht geöffnet werden !',0
 LibFehlerTab	dc.l	DosFehler,IntFehler,GfxFehler
-ScreenFehler	dc.b	'Schirm konnte nicht geï¿½ffnet werden !',0
-FenstFehler	dc.b	'Fenster konnte nicht geï¿½ffnet werden !',0
+ScreenFehler	dc.b	'Schirm konnte nicht geöffnet werden !',0
+FenstFehler	dc.b	'Fenster konnte nicht geöffnet werden !',0
 MenuFehler	dc.b	'Menus konnten nicht erstellt werden !',0
-ReqFehler	dc.b	'Requester konnte nicht geï¿½ffnet werden !',0
+ReqFehler	dc.b	'Requester konnte nicht geöffnet werden !',0
 LockFehler	dc.b	'Datei existiert nicht !',0
 ExamineFehler	dc.b	'Datei konnte nicht untersucht werden !',0
 AllocMemFehler	dc.b	'Speicher konnte nicht reserviert werden !',0
-OpenFehler	dc.b	'Datei konnte nicht geï¿½ffnet werden !',0
+OpenFehler	dc.b	'Datei konnte nicht geöffnet werden !',0
 GepacktFehler	dc.b	'Datei gepackt !',0
 ReadFehler	dc.b	'Fehler beim Lesen der Datei !',0
 ConTitel1	dc.b	'CON:0/118/640/21/Fehler !',0
@@ -6231,12 +6188,10 @@ UnitLibPfad	dc.b	'LIB/UNIT.LIB',0
 BI2		dc.b	'BI2:',0
 ErstFenstUnits	dc.b	'Erstelle Fenster Units ...',0
 ErstFenstParts	dc.b	'Erstelle Fenster Parts ...',0
-Titel5		dc.b	'Level : __ Grï¿½ï¿½e : xx * yy Schr. : ss',0
+Titel5		dc.b	'Level : __ Größe : xx * yy Schr. : ss',0
 ScrollListe	dc.l	$1d,-1,01,$1e,00,01,$1f,01,01,$2d,-1,00,$2f,01,00
 		dc.l	$3d,-1,-1,$3e,00,-1,$3f,01,-1,$4c,00,-1,$4d,00,01
 		dc.l	$4e,01,00,$4f,-1,00
-Benutzer	dc.b	'1                         2',0
-Nummer		dc.b	'1     2',0
 LvlLaden	dc.b	'Level laden ...',0
 LvlSichern	dc.b	'Level sichern ...',0
 LadenText	dc.b	'Lade Level xx ...',0
@@ -6250,7 +6205,7 @@ SichShp		dc.b	'Schreibe xx.SHP ...',0
 PmpName		dc.b	'MAP/xx.PMP',0
 RechnePmp	dc.b	'Rechne xx.PMP ...',0
 SichPmp		dc.b	'Schreibe xx.PMP ...',0
-ZaehlShpText	dc.b	'Zï¿½hle Shops ...',0
+ZaehlShpText	dc.b	'Zähle Shops ...',0
 TypTeilListe	dc.b	00,47,00,00,95,01
 		dc.b	01,44,00,01,46,02,01,94,01
 		dc.b	02,32,00,02,93,01,02,96,02
@@ -6278,8 +6233,6 @@ SI_Energie	dc.b	' Energie :',0
 ClassSprung	dc.l	$8,ExModus,$100,MenuHandel,$400,TastaturHandel
 Teiler		dc.l	1000000000,100000000,10000000,1000000,100000,10000,
 		dc.l	1000,100,10
-Folge		dc.b	92,67,61,42,36,89,23,20,23,37,74,61,102,29,24,94,77
-		dc.b	126,54,113,39,51,60,34,55,49,35
 LPTxt		dc.b	'Lade Pfad ...',0
 PfadName	dc.b	'S:BIPfad',0
 FenstTab	dc.l	Fenst3,Fenst3,Fenst1
@@ -6287,10 +6240,10 @@ SiSiSiTxt	dc.b	'Sind Sie sicher ? (j/n) ',0
 EZKTxt		dc.b	'Eins  Zwei  Karte',0
 StatsTxt	dc.b	'Fabriken :',0,'  Depots :',0,' Energie :',0
 		dc.b	'   Units :',0,'Aldinium :',0
-ModsTxt		dc.b	'Modus : Fï¿½llen',0,'Modus : Straï¿½e',0
+ModsTxt		dc.b	'Modus : Füllen',0,'Modus : Straße',0
 		dc.b	'Modus : Wall  ',0
 ModsTxtTab	dc.l	ModsTxt,ModsTxt+15,ModsTxt+30
-ZweiHQsTxt	dc.b	'Es muï¿½ zwei HQs geben !',0
+ZweiHQsTxt	dc.b	'Es muß zwei HQs geben !',0
 Star		dc.b	'*',0
 HQFelder	dc.l	1,1,-1,1,0,-1,0,2,0,1,1,1,1,0,1,0,1,0
 HQTeile1	dc.b	05,00,00,00,00,00,00
