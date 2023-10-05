@@ -1,0 +1,3 @@
+.Key Source/A
+A68k source/<Source>.asm build/<Source>.o
+Blink build/<Source>.o to bin/<Source>
